@@ -74,11 +74,24 @@ const displayAiTools = (aiTools, isSeeMore) => {
         `;
         aiToolCardsContainer.appendChild(cardsContentContainer);
     });
+    showSpinner(false);
 }
 
 // see more ai tools
 const seeMoreTools = () => {
+    showSpinner(true);
     loadAiToolsData(true);
+}
+
+// showing spinner
+const showSpinner = (isLoading) => {
+    const getSpinner = document.getElementById('loading-spinner');
+    if(isLoading){
+        getSpinner.classList.remove('hidden');
+    }
+    else{
+        getSpinner.classList.add('hidden');
+    }
 }
 
 loadAiToolsData();
