@@ -67,7 +67,7 @@ const displayAiTools = (aiTools, isSeeMore) => {
               <h3 class="font-bold text-2xl mb-2">${tool.name}</h3>
               <p class="text-gray-500"><i class="fa-regular fa-calendar"></i> <span class="text-sm">${tool.published_in}</span></p>
           </div>
-          <button onclick='my_modal_3.showModal()' class="text-error"><i class="fa-solid fa-arrow-right"></i></button>
+          <button onclick='loadToolsData("${tool.id}")' class="text-error"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
           
@@ -93,5 +93,61 @@ const showSpinner = (isLoading) => {
         getSpinner.classList.add('hidden');
     }
 }
+
+// loading tools data
+const loadToolsData = async (id) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
+    const data = await res.json();
+    const toolsData = data.data;
+    displayAiToolsContent(toolsData);
+}
+
+const displayAiToolsContent = (toolsData) => {
+    console.log(toolsData);
+    const aiToolsContentContainer = document.getElementById('ai-tools-content-container');
+    aiToolsContentContainer.innerHTML = `
+    <div class="border space-y-4 border-red-400 bg-[#fef7f7] rounded-xl px-6 py-8">
+        <div>
+            <p class="font-bold">${toolsData.description}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl p-4 flex items-center text-green-600 font-bold">${toolsData?.pricing[0]?.price} ${toolsData?.pricing[0]?.plan}</div>
+            <div class="bg-white rounded-xl p-4 flex items-center text-orange-600 font-bold">${toolsData?.pricing[1]?.price} ${toolsData?.pricing[1]?.plan}</div>
+            <div class="bg-white rounded-xl p-4 flex items-center text-red-600 font-bold">${toolsData?.pricing[2]?.price} ${toolsData?.pricing[2]?.plan}</div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div>
+                <h2 class="font-bold text-2xl mb-4">Features</h2>
+                <ul class="list-disc text-gray-500 pl-6 space-y-1">
+                <li>${toolsData.features['1'].feature_name}</li>
+                <li>${toolsData.features['2'].feature_name}</li>
+                <li>${toolsData.features['3'].feature_name}</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="font-bold text-2xl mb-4">Integrations</h2>
+                <ul class="list-disc text-gray-500 pl-6 space-y-1">
+                    <li>${toolsData?.integrations[0] || 'No data Found'}</li>
+                    <li>${toolsData?.integrations[1] || 'No data Found'}</li>
+                    <li>${toolsData?.integrations[2] || 'No data Found'}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="border border-gray-100 rounded-xl px-6 py-6">
+        <div class='relative'>
+            <img class="rounded-xl" src="${toolsData.image_link[0]}" alt="${toolsData.tool_name}">
+            <div class="badge badge-error rounded-md text-white font-bold p-3 absolute top-2 right-2">${toolsData?.accuracy?.score}% accuracy</div>
+        </div>
+        <div class="text-center mt-4">
+        <h2 class="font-bold mb-3 text-lg">${toolsData?.input_output_examples[0]?.input}</h2>
+        <p class=" text-gray-500 text-xs">${toolsData?.input_output_examples[0]?.output || 'No! Not Yet! Take a break!!!'}</p>
+        </div>
+    </div>
+    `;
+    my_modal_3.showModal()
+}
+
+
 
 loadAiToolsData(showSpinner(true));
