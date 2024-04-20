@@ -67,7 +67,7 @@ const displayAiTools = (aiTools, isSeeMore) => {
               <h3 class="font-bold text-2xl mb-2">${tool.name}</h3>
               <p class="text-gray-500"><i class="fa-regular fa-calendar"></i> <span class="text-sm">${tool.published_in}</span></p>
           </div>
-          <button class="text-error"><i class="fa-solid fa-arrow-right"></i></button>
+          <button onclick='my_modal_3.showModal()' class="text-error"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
           
