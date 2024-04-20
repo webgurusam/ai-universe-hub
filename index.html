@@ -22,67 +22,13 @@
         <div id="ai-features-container">
             <!-- ai feature cards container -->
             <div class="container mx-auto mb-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  <div class="flex flex-col justify-between p-5 bg-white border rounded-xl shadow-sm">
-                    <div>
-                      <div>
-                        <img class="rounded-xl" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2022/08/Character-Voices-Feature.jpg" alt="">
-                      </div>
-                      <div class="pb-6 mt-5 mb-6 border-b">
-                        <p class="mb-5 font-bold tracking-wide text-2xl">Features</p>
-                        <ul class="space-y-2">
-                          <li class="flex items-center">
-                            <div class="mr-2">
-                              <svg class="w-4 h-4 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                              </svg>
-                            </div>
-                            <p class="font-medium text-gray-800">10 deploys per day</p>
-                          </li>
-                          <li class="flex items-center">
-                            <div class="mr-2">
-                              <svg class="w-4 h-4 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                              </svg>
-                            </div>
-                            <p class="font-medium text-gray-800">10 GB of storage</p>
-                          </li>
-                          <li class="flex items-center">
-                            <div class="mr-2">
-                              <svg class="w-4 h-4 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                              </svg>
-                            </div>
-                            <p class="font-medium text-gray-800">Unlimited domains</p>
-                          </li>
-                          <li class="flex items-center">
-                            <div class="mr-2">
-                              <svg class="w-4 h-4 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linecap="round" stroke-width="2">
-                                <polyline fill="none" stroke="currentColor" points="6,12 10,16 18,8"></polyline>
-                                <circle cx="12" cy="12" fill="none" r="11" stroke="currentColor"></circle>
-                              </svg>
-                            </div>
-                            <p class="font-medium text-gray-800">SSL Certificates</p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <h3 class="font-bold text-2xl mb-2">ChatGPT</h3>
-                            <p class="text-gray-500"><i class="fa-regular fa-calendar"></i> <span class="text-sm">11/01/2022</span></p>
-                        </div>
-                        <button class="text-error"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                  </div>
+                <div id="ai-tool-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
                 </div>
             </div>
             <!-- see more features container -->
-            <div id="see-more-features-container" class="text-center mb-12">
-              <button class="btn btn-error text-white">See More</button>
+            <div id="see-more-features-container" class="text-center mb-12 hidden">
+              <button onclick="seeMoreTools()" class="btn btn-error text-white">See More</button>
             </div>
         </div>
       </section>
