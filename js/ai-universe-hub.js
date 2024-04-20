@@ -79,7 +79,7 @@ const displayAiTools = (aiTools, isSeeMore) => {
 
 // see more ai tools
 const seeMoreTools = () => {
-    showSpinner(true);
+    showSpinner(true)
     loadAiToolsData(true);
 }
 
@@ -94,4 +94,4 @@ const showSpinner = (isLoading) => {
     }
 }
 
-loadAiToolsData();
+loadAiToolsData(showSpinner(true));
