@@ -137,7 +137,7 @@ const displayAiToolsContent = (toolsData) => {
     <div class="border border-gray-100 rounded-xl px-6 py-6">
         <div class='relative'>
             <img class="rounded-xl" src="${toolsData.image_link[0]}" alt="${toolsData.tool_name}">
-            <div class="badge badge-error rounded-md text-white font-bold p-3 absolute top-2 right-2">${toolsData?.accuracy?.score.toString().slice(2,4)}% accuracy</div>
+            <div class="badge badge-error rounded-md text-white font-bold p-3 absolute top-2 right-2">${toolsData?.accuracy?.score?.toString().slice(2,4) || '0'}% accuracy</div>
         </div>
         <div class="text-center mt-4">
         <h2 class="font-bold mb-3 text-lg">${toolsData?.input_output_examples[0]?.input}</h2>
