@@ -7,6 +7,18 @@ const loadAiToolsData = async (isSeeMore) => {
 const displayAiTools = (aiTools, isSeeMore) => {
     const aiToolCardsContainer = document.getElementById('ai-tool-cards-container');
     const seeMoreFeaturesContainer = document.getElementById('see-more-features-container');
+    const headerContent = document.getElementById('headerContent');
+    const getThe404Page = document.getElementById('page-404');
+    // 404 page
+    if(aiTools.length === 0){
+        getThe404Page.classList.remove('hidden');
+        headerContent.classList.add('hidden');
+    }
+    else{
+        getThe404Page.classList.add('hidden');
+        headerContent.classList.remove('hidden')
+    }
+
     // clear ai tool cards container
     aiToolCardsContainer.textContent = '';
     
